@@ -1,0 +1,61 @@
+--Config { font = "xft:Deja Vu Sans Mono:weight=bold:pixelsize=14:antialias=true:hinting=true"
+Config { font = "xft:Deja Vu Sans Mono:weight=bold:pixelsize=14"
+       , additionalFonts = [ "xft:Font Awesome 6 Brands:pixelsize=16"
+                           , "xft:Font Awesome 6 Free Solid:pixelsize=14"
+                           , "xft:Font Awesome 6 Free Regular:pixelsize=14"
+			   ]
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "#f5f5dc"
+       , alpha = 255
+       , position = TopSize L 100 10
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Com "echo" ["<fn=1>\xf3a4</fn>"] "bsd" 3600
+
+		    --, Run Com "echo" ["<fn=2>\xf3cd</fn>"] "tpadIcon" 40000
+		    --, Run Com "touchpadStatus.sh" [] "tpad" 50
+
+            , Run Com "echo" ["<fn=2>\xf6ff</fn>"] "netIcon" 40000
+            , Run Com "network.sh" [] "netif" 100
+
+            , Run Com "echo" ["<fn=2>\xf130 </fn>"] "micIcon" 40000
+            , Run Com "audio.sh" ["-m"] "mic" 20
+
+		    , Run Com "echo" ["<fn=2>\xf028</fn>"] "volIcon" 40000
+		    , Run Com "audio.sh" ["-p"] "volume" 20
+
+		    --, Run Com "echo" ["<fn=2>\xf6c4</fn>"] "weatherIcon" 40000
+		    --, Run Com "weather.sh" [] "weather" 1000
+
+            --, Run Com "echo" ["<fn=2>\xf0eb</fn>"] "backlightIcon" 40000
+		    --, Run Com "backlight" ["-q"] "backlight" 20
+
+		    , Run Com "echo" ["<fn=2>\xf240</fn>"] "batteryIcon" 40000
+		    , Run Com "battery.sh" [] "bat" 100
+
+            , Run Date "<fn=2>\xf073</fn> %a %b %d %y %H:%M" "date" 50
+
+		    , Run UnsafeXMonadLog
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <action=`bsdmenu.sh`><fc=#df2c14>%bsd%</fc></action> %UnsafeXMonadLog%}\
+                    \ { <action=`DisplayNetif.sh`>%netIcon%%netif%</action>\
+                    \ <fc=#ff79c6>.</fc>\
+                    \ <action=`audio.sh -M` button=1><action=`audio.sh -Z` button=3>%micIcon%%mic%</action></action>\
+                    \ <fc=#ff79c6>.</fc>\
+                    \ <action=`audio.sh -P` button=1><action=`audio.sh -z` button=3>%volIcon%%volume%</action></action>\
+                    \ <fc=#ff79c6>.</fc>\
+                    \ %batteryIcon%%bat%\
+                    \ <fc=#ff79c6>.</fc>\
+		            \ %date% "
+       }
