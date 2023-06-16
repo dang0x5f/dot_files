@@ -91,8 +91,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_Up    ), spawn "backlight incr 5")
     , ((modm,               xK_Down  ), spawn "backlight decr 5")
     -- browsers
-    , ((modm .|. shiftMask, xK_b     ), spawn "firefox")
-    , ((modm .|. controlMask, xK_b   ), spawn "qutebrowser google.com")
+    , ((modm .|. shiftMask, xK_b     ), spawn "firefox $HOME/.config/qutebrowser/launcher.html")
+    , ((modm .|. controlMask, xK_b   ), spawn "qutebrowser $HOME/.config/qutebrowser/launcher.html")
     -- launch dmenu
     , ((modm .|. shiftMask, xK_d     ), spawn "$HOME/.local/bin/mainmenu.sh")
     -- launch nsxiv
