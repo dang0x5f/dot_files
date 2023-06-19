@@ -54,7 +54,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     -- system options
-    , ((modm .|. shiftMask, xK_x     ), spawn "$HOME/.local/bin/bsdmenu.sh")
+    , ((modm .|. shiftMask, xK_x     ), spawn "$HOME/.local/bin/sysmenu.sh")
     -- window tagging, copy to all workspaces & killing
     , ((modm,               xK_y     ), windows copyToAll)
     , ((modm .|. shiftMask, xK_y     ), killAllOtherCopies)
@@ -94,7 +94,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_b     ), spawn "firefox $HOME/.config/qutebrowser/launcher.html")
     , ((modm .|. controlMask, xK_b   ), spawn "qutebrowser $HOME/.config/qutebrowser/launcher.html")
     -- launch dmenu
-    , ((modm .|. shiftMask, xK_d     ), spawn "$HOME/.local/bin/mainmenu.sh")
+    , ((modm .|. shiftMask, xK_d     ), spawn "$HOME/.local/bin/appmenu.sh")
     -- launch nsxiv
     , ((modm .|. shiftMask, xK_i     ), spawn "nsxiv -t $HOME/pics/")
     -- close focused window

@@ -48,8 +48,8 @@ Config { font = "xft:Deja Vu Sans Mono:weight=bold:pixelsize=14"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <action=`bsdmenu.sh`><fc=#df2c14>%bsd%</fc></action> %UnsafeXMonadLog%}\
-                    \ { <action=`DisplayNetif.sh`>%netIcon%%netif%</action>\
+       , template = " <action=`sysmenu.sh`><fc=#df2c14>%bsd%</fc></action> %UnsafeXMonadLog%}\
+                    \ { <action=`displayip.sh`>%netIcon%%netif%</action>\
                     \ <fc=#ff79c6>.</fc>\
                     \ <action=`audio.sh -M` button=1><action=`audio.sh -Z` button=3>%micIcon%%mic%</action></action>\
                     \ <fc=#ff79c6>.</fc>\
