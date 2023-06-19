@@ -1,0 +1,51 @@
+# $FreeBSD$
+#
+# This file will be used if the shell is invoked for interactive use and
+# the environment variable ENV is set to this file.
+# see also sh(1), environ(7).
+#
+# file permissions: rwxr-xr-x
+# umask	022
+
+set -o vi
+
+# some useful aliases
+alias h='fc -l'
+alias j=jobs
+alias m="$PAGER"
+alias ll='ls -lhaFo'
+alias l='ls -lh'
+alias g='egrep -i'
+ 
+# # be paranoid
+alias cp='cp -ip'
+alias mv='mv -i'
+alias rm='rm -i'
+
+## mimetype -- xdg-utils ##
+# find applications in /usr/local/share/applications
+# append with > default.app mime/type
+alias xdgsetdef='xdg-mime default'
+# append with > filename.extension
+alias xdgqueryfile='xdg-mime query filetype'
+# append with > mime/type
+alias xdgquerytype='xdg-mime query default'
+# ssh-agent wrapper to run X
+alias startx='ssh-agent startx'
+# new aliases
+alias cdrip='bash cdrip.sh'
+# ntfs drives need fusefs loaded in /boot/loader.conf OR kldload fusefs
+alias mountntfs='sudo ntfs-3g -o rw'
+# ipod specific fs type
+alias mountipod='sudo mount -t msdosfs'
+# lua interactive
+alias lua='lua54'
+
+# set prompt: ``username@hostname:directory $ '' 
+PS1="\u@\h:\w \\$ "
+
+# search path for cd(1)
+# CDPATH=:$HOME
+if [ -d $HOME/.local/bin ] && [ -e $HOME/.local/bin ]; then
+	export PATH="$PATH:$HOME/.local/bin"
+fi
