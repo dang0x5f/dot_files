@@ -163,7 +163,9 @@ map nj :bp<CR>
 map nb :ls<CR>:b<Space>
 
 " yanks from cursor to end of line
-nnoremap Y y$
+" nnoremap Y y$
+map <leader>cc "+y
+map <leader>cv "+p
 
 " auto bracket completion, can also add apostrophe and quotes
 inoremap {<CR> {<CR>}<Esc>ko
