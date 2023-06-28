@@ -10,6 +10,7 @@
 set -o vi
 
 # some useful aliases
+alias ls='ls -G'
 alias h='fc -l'
 alias j=jobs
 alias m="$PAGER"
