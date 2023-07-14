@@ -1,0 +1,86 @@
+
+html {
+    color: #f5f5dc;
+    font-size: 16pt;
+    font-family: monospace;
+    background-color: indigo;
+    /*background-image: url('/usr/home/dang/pics/space_jord.png');*/
+}
+
+body {
+}
+
+h2 {
+    text-align: center;
+    letter-spacing: 0.05em;
+    background: linear-gradient(cyan, magenta, yellow);
+    text-shadow: black 3px 3px 5px;
+}
+
+ul {
+    list-style-type: lower-greek;
+}
+a {
+    text-decoration: none;
+}
+a:visited {
+    color: lightblue;
+}
+a:hover {
+    color: turquoise;
+    font-weight: bold;
+    background: linear-gradient(cyan, magenta, yellow);
+}
+
+/* LINKS */
+section.links {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    border-radius: 30px;
+    /*background: linear-gradient(red, green, blue);*/
+    background: linear-gradient(cyan, magenta, yellow);
+}
+
+/* EXTERNAL LINKS */
+div#external-links {
+    flex: 0 1 300px;
+    display: block;
+    margin: 1% 0;
+    background-color: indigo;
+    box-shadow: white 3px 3px 10px,
+                lightblue -3px -3px 10px ;
+}
+
+div#external-links ul {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 5%;
+}
+div#external-links ul li {
+    margin-bottom: 5%;
+}
+div#external-links ul li a {
+    display: block;
+}
+
+/* INTERNAL LINKS */
+div#internal-links {
+    flex: 0 1 300px;
+    display: block;
+    margin: 1% 0;
+    background-color: indigo;
+    box-shadow: lightblue 3px 3px 10px,
+                white -3px -3px 10px ;
+}
+div#internal-links ul {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 5%;
+}
+div#internal-links ul li {
+    margin-bottom: 5%;
+}
+div#internal-links ul li a {
+    display: block;
+}
