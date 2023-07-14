@@ -137,6 +137,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'dracula/vim'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -172,6 +173,7 @@ inoremap {<CR> {<CR>}<Esc>ko
 " inoremap ( ()<Esc>ha
 " inoremap [ []<Esc>ha
 
+" nnoremap <leader>; :Commentary<cr>
 " toggle NERDtree
 nnoremap <F3> :NERDTreeToggle<cr>
 " ignore certain files/dirs
