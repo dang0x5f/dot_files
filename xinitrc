@@ -1,20 +1,18 @@
+rfid.sh &
 xbanish &
 xsetroot -cursor_name left_ptr
 #xrandr --output VGA-1 --primary
 #xrandr --output VGA-1 --mode 1600x1200 
 xrandr --output LVDS-1 --off
 xrandr --output VGA-1 --primary --mode 1600x1200
-#xrandr --output HDMI-1 --mode 640x480 --left-of VGA-1
-xrandr --output HDMI-1 --left-of VGA-1 --mode 640x480
+xrandr --output HDMI-1 --mode 640x480 --left-of VGA-1
+#xrandr --output HDMI-1 --left-of VGA-1 --mode 640x480
 #xrandr --output HDMI-1 --auto
 #xrandr --output HDMI-1 --mode 320x240
 #xrandr --output HDMI-1 --mode 640x480
 #xrandr --output HDMI-1 --mode 250x200
 #xrandr --output HDMI-1 --mode 160x120
 #xrandr --output HDMI-1 --mode 40x30
-# disables rfid scanner, run xinput to see device id
-#   then run below
-xinput --disable 12
 picom --daemon &
 ~/.fehbg &
 xrdb ~/.Xresources
