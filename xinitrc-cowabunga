@@ -1,0 +1,6 @@
+xbanish &
+xsetroot -cursor_name left_ptr
+picom &
+nitrogen --restore &
+xrdb ~/.Xresources
+exec /usr/local/bin/xmonad
