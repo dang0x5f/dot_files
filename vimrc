@@ -160,6 +160,7 @@ set background=dark
 let mapleader = ";"
 map nk :bn<CR>
 map nj :bp<CR>
+map nd :bd<CR>
 " future use: if --more-- causes problems, look into set nomore
 map nb :ls<CR>:b<Space>
 
