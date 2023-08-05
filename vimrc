@@ -174,6 +174,10 @@ inoremap {<CR> {<CR>}<Esc>ko
 " inoremap ( ()<Esc>ha
 " inoremap [ []<Esc>ha
 
+" indenting
+vnoremap > > gv
+vnoremap < < gv
+
 " nnoremap <leader>; :Commentary<cr>
 " toggle NERDtree
 nnoremap <F3> :NERDTreeToggle<cr>
