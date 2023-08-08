@@ -2,11 +2,11 @@ Config { font = "Consola 9"
        , additionalFonts = [ "Font Awesome 6 Brands 12"
                            , "Font Awesome 6 Free Solid 10"
                            , "Font Awesome 6 Free Regular 10"
-			   ]
+                           , "Font Awesome 6 Free Solid 2" ]
        , borderColor = "black"
        , border = TopB
-       , bgColor = "black"
-       , fgColor = "#f5f5dc"
+       , bgColor = "#444444"
+       , fgColor = "#fffdd0"
        , alpha = 255
        , position = TopSize L 100 20
        , textOffset = 0
@@ -18,42 +18,57 @@ Config { font = "Consola 9"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Com "echo" ["<fn=1>\xf3a4</fn>"] "bsd" 3600
+       , commands = [ Run Com "echo" ["<fn=1>\xf3a4</fn>"] "bsd" 36000
 
-		    , Run Com "echo" ["<fn=2>\xf8cc</fn>"] "tpadIcon" 40000
+            , Run Com "echo" ["<fn=1>\xf09b</fn>"] "githubIcon" 400000
+            , Run Com "githubStatus.sh" ["-c"] "ghub" 60
+
+		    , Run Com "echo" ["<fn=2>\xf8cc</fn>"] "tpadIcon" 400000
 		    , Run Com "touchpadStatus.sh" [] "tpad" 50
 
-            , Run Com "echo" ["<fn=2>\xf6ff</fn>"] "netIcon" 40000
+            , Run Com "echo" ["<fn=2>\xf0ac</fn>"] "netIcon" 400000
             , Run Com "network.sh" [] "netif" 100
+
+		    , Run Com "echo" ["<fn=2>\xf130</fn>"] "micIcon" 400000
+		    , Run Com "audio.sh" ["-m"] "mic" 20
             
-		    , Run Com "echo" ["<fn=2>\xf028</fn>"] "volIcon" 40000
+		    , Run Com "echo" ["<fn=2>\xf028</fn>"] "volIcon" 400000
 		    , Run Com "audio.sh" ["-p"] "volume" 20
 
-		    --, Run Com "echo" ["<fn=2>\xf6c4</fn>"] "weatherIcon" 40000
+		    --, Run Com "echo" ["<fn=2>\xf6c4</fn>"] "weatherIcon" 400000
 		    --, Run Com "/home/dang/.local/bin/weatherCond.sh" [] "weatherCondition" 1000
 
-            , Run Com "echo" ["<fn=2>\xf0eb</fn>"] "backlightIcon" 40000
-		    , Run Com "backlight" ["-q"] "backlight" 20
+            , Run Com "echo" ["<fn=2>\xf0eb</fn>"] "backlightIcon" 400000
+		    , Run Com "lighting.sh" ["-c"] "backlight" 20
 
-		    , Run Com "echo" ["<fn=2>\xf240</fn>"] "batteryIcon" 40000
-		    , Run Com "battery.sh" [] "bat" 100
+		    , Run Com "echo" ["<fn=2>\xf240</fn>"] "batteryIcon" 400000
+		    , Run Com "battery.sh" ["-c"] "bat" 100
+
+            --, Run Com "printcolor.sh" [] "test" 100
 
             , Run Date "<fn=2>\xf073</fn> %a %b %d %y %H:%M" "date" 50
+            
+            -- delimiter
+            , Run Com "echo" ["<fc=#ff79c6><fn=4> \xf111 </fn></fc>"] "delim" 400000
             
 		    , Run UnsafeXMonadLog
                     ]
        , sepChar = "%"
        , alignSep = "}{"
        , template = " <action=`sysmenu.sh`><fc=#df2c14>%bsd%</fc></action> %UnsafeXMonadLog%}\
-                    \ { <action=`touchpadToggle.sh`>%tpadIcon%%tpad%</action>\
-                    \ <fc=#ff79c6>.</fc>\
-                    \ <action=`displayip.sh`>%netIcon%%netif%</action>\
-                    \ <fc=#ff79c6>.</fc>\
-                    \ <action=`audio.sh -z` button=1>%volIcon%%volume%</action>\
-                    \ <fc=#ff79c6>.</fc>\
-		            \ %backlightIcon% %backlight%\
-                    \ <fc=#ff79c6>.</fc>\
-                    \ %batteryIcon%%bat%\
-                    \ <fc=#ff79c6>.</fc>\
+                    \ { <action=`githubStatus.sh -t` button=1><action=`st` button=3>%ghub%%githubIcon%</fc></action></action>\
+                    \ %delim%\
+                    \ <action=`touchpadToggle.sh`>%tpad%%tpadIcon%</fc></action>\
+                    \ %delim%\
+                    \ <action=`displayip.sh`>%netif%%netIcon%</fc></action>\
+                    \ %delim%\
+                    \ <action=`audio.sh -t` button=1><action=`audio.sh -Z` button=2><action=`audio.sh -M` button=3>%mic%%micIcon%</fc></action></action></action>\
+                    \ %delim%\
+                    \ <action=`audio.sh -T` button=1><action=`audio.sh -z` button=2><action=`audio.sh -P` button=3>%volume%%volIcon%</fc></action></action></action>\
+                    \ %delim%\
+		            \ <action=`lighting.sh -t`>%backlight%%backlightIcon%</fc></action>\
+                    \ %delim%\
+                    \ <action=`battery.sh -t`>%bat%%batteryIcon%</fc></action>\
+                    \ %delim%\
 		            \ %date% "
        }
