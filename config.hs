@@ -33,7 +33,7 @@ import XMonad.Layout.Spacing
 --import XMonad.Layout.Spiral
 --myLayout = renamed [CutWordsLeft 1]
 --         . spacingWithEdge 1 
-	 -- $ avoidStruts (tiled ||| Mirror tiled ||| Full ||| spiral (6/7))
+--         -- $ avoidStruts (tiled ||| Mirror tiled ||| Full ||| spiral (6/7))
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 myTerminal      = "st"
@@ -43,8 +43,10 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = False
 myBorderWidth   = 2
 myModMask       = mod4Mask
-myWorkspaces    = ["main","dev0x1","dev0x2","dev0x3","web","media","edit","bhyve","game"]
+myWorkspaces    = ["1-\xf015","2-\xf390","3-\xf390","4-\xf390","5-\xf269","6-\xf87c","7-\xf15c","8-\xe4e5","9-\xf26c"]
+--myWorkspaces    = ["main","dev0x1","dev0x2","dev0x3","web","media","edit","bhyve","game"]
 myNormalBorderColor  = "#000000"--"#bbbbbb"
+-- myFocusedBorderColor = "#bd93f9"--"#f5f5dc"
 myFocusedBorderColor = "#f5f5dc"
 myFilter = filterOutWsPP [scratchpadWorkspaceTag]
 ------------------------------------------------------------------------
@@ -284,9 +286,9 @@ myConfig = def
     }
 
 myXmobarPP = def
-      { ppSep              = magenta " . "
+      { ppSep              = magenta " <fn=4>\xf111</fn> "
       , ppTitleSanitize    = xmobarStrip
-      , ppCurrent          = wrap "" "" . xmobarBorder "Top" "#8be9fd" 2
+      , ppCurrent          = magenta . wrap "" "" . xmobarBorder "Top" "#8be9fd" 2
       , ppHidden           = white . wrap "" ""
       , ppHiddenNoWindows  = lowWhite . wrap "" ""
       , ppUrgent           = red . wrap (yellow "!") (yellow "!")
@@ -294,15 +296,16 @@ myXmobarPP = def
       , ppExtras           = [logTitles formatFocused formatUnfocused]
       }
     where
-      formatFocused        = wrap (white    "[") (white    "]") . magenta . ppWindow
+      formatFocused        = wrap (cyan     "[") (cyan     "]") . magenta . ppWindow
       formatUnfocused      = wrap (lowWhite "[") (lowWhite "]") . blue    . ppWindow
 
-      ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
+      ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 20
 
       magenta  = xmobarColor "#ff79c6" ""
       blue     = xmobarColor "#bd93f9" ""
+      cyan     = xmobarColor "#8be9fd" ""
       --white    = xmobarColor "#f8f8f2" ""
-      white    = xmobarColor "#f5f5dc" ""
+      white    = xmobarColor "#fffdd0" ""
       yellow   = xmobarColor "#f1fa8c" ""
       red      = xmobarColor "#ff5555" ""
-      lowWhite = xmobarColor "#bbbbbb" ""
+      lowWhite = xmobarColor "#666666" ""
