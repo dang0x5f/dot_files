@@ -16,7 +16,8 @@ alias j=jobs
 alias m="$PAGER"
 alias ll='ls -lhaFo'
 alias l='ls -lh'
-alias g='egrep -i'
+alias g='egrep -i --color=auto'
+alias grep='grep -i --color=auto'
  
 # # be paranoid
 alias cp='cp -ip'
