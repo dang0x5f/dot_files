@@ -51,3 +51,15 @@ PS1="\u@\h:\w \\$ "
 if [ -d $HOME/.local/bin ] && [ -e $HOME/.local/bin ]; then
 	export PATH="$PATH:$HOME/.local/bin"
 fi
+
+# JavaFX Environment Variables & Aliases
+# Sources:
+#   https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html
+#   https://openjfx.io/openjfx-docs/#install-javafx
+#   https://forums.freebsd.org/threads/javafx-on-freebsd.80570/
+# Pkgs: 
+#   openjdk19 , openjfx14 (or check for newer versions)
+export JAVA_HOME="/usr/local/openjdk19"
+export PATH="$JAVA_HOME/bin:$PATH"
+alias javafxc='javac --module-path /usr/local/openjfx14/lib --add-modules javafx.controls' # Java Compile
+alias javafx='java --module-path /usr/local/openjfx14/lib --add-modules javafx.controls' # Java Runtime
