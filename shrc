@@ -42,6 +42,8 @@ alias mountntfs='sudo ntfs-3g -o rw'
 alias mountipod='sudo mount -t msdosfs'
 # lua interactive
 alias lua='lua54'
+# shortened arduino make
+alias makearduino='sudo make install flash clean cleandepend'
 
 # set prompt: ``username@hostname:directory $ '' 
 PS1="\u@\h:\w \\$ "

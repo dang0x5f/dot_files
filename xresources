@@ -1,0 +1,7 @@
+! NSXIV
+*.background: #111111
+*.foreground: #fffdd0
+!bar.background: #bbc2cf
+!bar.foreground: #000000
+! man nsxiv
+bar.font: xft:DejaVu Sans Mono:weight=bold:antialias=true
