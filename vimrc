@@ -13,7 +13,7 @@ colorscheme dracula
 
 let g:dracula_italic = 0
 
-let g:vimwiki_list = [{'name':'main','path':'/mnt/vimwiki/'}, {'name':'local','path':'~/.vimwiki/'}]
+let g:vimwiki_list = [{'name':'main','path':'/mnt/vimwiki/'}, {'name':'local','path':'~/.vim/.vimwiki/'}]
 
 let g:gitgutter_grep=''
 set updatetime=100
