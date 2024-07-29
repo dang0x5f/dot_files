@@ -23,7 +23,7 @@ Config { font = "IBM Plex Sans Medium 10"
        , overrideRedirect = True
        , commands = [ Run Com "echo" ["  <fn=1>\xf3a4</fn>  "] "bsd"   36000
 
-            , Run Com "echo" ["<fn=6>\xf3d2</fn>"] "napster" 36000
+            --, Run Com "echo" ["<fn=6>\xf3d2</fn>"] "napster" 36000
 
             , Run Com "ticker-primer.sh" [] "ticker" 10
 
