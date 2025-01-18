@@ -15,7 +15,7 @@ alias h='fc -l'
 alias j=jobs
 alias m="$PAGER"
 alias ll='ls -lhaFo'
-alias l='ls -lh'
+alias l='tree -L 1 -C'
 alias g='egrep -i --color=auto'
 alias grep='grep -i --color=auto'
  
@@ -63,5 +63,5 @@ fi
 #   openjdk19 , openjfx14 (or check for newer versions)
 export JAVA_HOME="/usr/local/openjdk19"
 export PATH="$JAVA_HOME/bin:$PATH"
-alias javafxc='javac --module-path /usr/local/openjfx14/lib --add-modules javafx.controls' # Java Compile
-alias javafx='java --module-path /usr/local/openjfx14/lib --add-modules javafx.controls' # Java Runtime
+alias javafxc='javac --module-path /usr/local/openjfx14/lib --add-modules javafx.controls,javafx.fxml' # Java Compile
+alias javafx='java --module-path /usr/local/openjfx14/lib --add-modules javafx.controls,javafx.fxml' # Java Runtime

@@ -33,6 +33,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ServerMode
+import XMonad.Hooks.SetWMName
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.CopyWindow
@@ -211,6 +212,7 @@ myManageHook = composeAll
 
     , className =? "firefox-esr" <&&> resource =? "Toolkit" --> doRectFloat (W.RationalRect (0.75) (0.03) (0.25) (0.25))
 
+    , className =? "Main"  --> doFloat -- java
     , className =? "processing-app-Base"  --> doFloat
     , className =? "Gtkpod"               --> doFloat
     , className =? "SimpleScreenRecorder" --> doFloat
@@ -261,7 +263,8 @@ myEventHook =  serverModeEventHook
 
 myLogHook = return ()
 
-myStartupHook = return ()
+-- myStartupHook = return ()
+myStartupHook = setWMName "LG3D"
 
 ------------------------------------------------------------------------
 ----------------------------------------------------------------------------- o

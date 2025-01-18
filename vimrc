@@ -21,12 +21,25 @@ set updatetime=100
 
 " ************************************ Key Binds ***************************** {{{
 nnoremap <Space> <Nop>
+vnoremap <Space> <Nop>
 let mapleader = " "
 
-nnoremap nk :bn<CR>
-nnoremap nj :bp<CR>
-nnoremap nd :bd<CR>
-nnoremap nb :ls<CR>:b<Space>
+nnoremap Q <Nop>
+
+nnoremap K :bn<CR>
+nnoremap J :bp<CR>
+nnoremap <Space>d :bd<CR>
+nnoremap <Space>b :ls<CR>:b<Space>
+
+vnoremap <Space>- :s///gc<LEFT><LEFT><LEFT>
+nnoremap <Space>- :s///gc<LEFT><LEFT><LEFT>
+
+nnoremap + J
+
+nnoremap <C-k> :m .-2<CR>==
+nnoremap <C-j> :m .+1<CR>==
+vnoremap <C-k> :m '<-2<CR>gv=gv
+vnoremap <C-j> :m '>+1<CR>gv=gv
 
 nnoremap o o<Esc>
 nnoremap O O<Esc>
