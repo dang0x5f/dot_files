@@ -1,16 +1,18 @@
---Config { font = "xft:Deja Vu Sans Mono:weight=bold:pixelsize=14:antialias=true:hinting=true"
-Config { font = "xft:Deja Vu Sans Mono:weight=bold:pixelsize=14"
-       , additionalFonts = [ "xft:Font Awesome 6 Brands:pixelsize=16"
-                           , "xft:Font Awesome 6 Free Solid:pixelsize=14"
-                           , "xft:Font Awesome 6 Free Regular:pixelsize=14"
-			   ]
-       , borderColor = "black"
-       , border = TopB
-       , bgColor = "black"
-       , fgColor = "#f5f5dc"
+Config { font = "IBM Plex Sans Medium 10"
+       , additionalFonts = [ "Font Awesome 6 Brands 12"
+                           , "Font Awesome 6 Free Solid 10"
+                           , "Font Awesome 6 Free Regular 10"
+                           , "Font Awesome 6 Free Solid 2" 
+                           , "Deja Vu Sans Mono 9" 
+                           , "Font Awesome 6 Brands 11" 
+                           ]
+       , borderColor = "#666666"
+       , border = BottomB
+       , bgColor = "#444444"
+       , fgColor = "#fffdd0"
        , alpha = 255
-       , position = TopSize L 100 10
-       , textOffset = -1
+       , position = TopSize L 100 20
+       , textOffset = 0 
        , iconOffset = -1
        , lowerOnStart = True
        , pickBroadest = False
@@ -19,43 +21,89 @@ Config { font = "xft:Deja Vu Sans Mono:weight=bold:pixelsize=14"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Com "echo" ["<fn=1>\xf3a4</fn>"] "bsd" 3600
+       , commands = 
+            [ Run Com "echo" ["  <fn=1>\xf3a4</fn>  "]      "bsd"           36000
 
-		    --, Run Com "echo" ["<fn=2>\xf3cd</fn>"] "tpadIcon" 40000
-		    --, Run Com "touchpadStatus.sh" [] "tpad" 50
+            , Run Com "ticker-primer.sh" []                 "ticker"        10
 
-            , Run Com "echo" ["<fn=2>\xf6ff</fn>"] "netIcon" 40000
-            , Run Com "network.sh" [] "netif" 100
+            , Run Com "echo"    ["<fn=3>\xf2f2</fn>"]       "timerIcon"     400000
+            , Run Com "pomo"    ["-p"]                      "timer"         20
 
-            , Run Com "echo" ["<fn=2>\xf130 </fn>"] "micIcon" 40000
-            , Run Com "audio.sh" ["-m"] "mic" 20
+            , Run Com "echo"    ["<fn=2>\xf09b</fn>"]       "githubIcon"    400000
+            , Run Com "exec.sh" ["prt" , "github_prt"]      "ghub"          50
 
-		    , Run Com "echo" ["<fn=2>\xf028</fn>"] "volIcon" 40000
-		    , Run Com "audio.sh" ["-p"] "volume" 20
+            , Run Com "echo"    ["<fn=2>\xf233</fn>"]       "serverIcon"    400000
+		    , Run Com "exec.sh" ["prt" , "localserver_prt"] "server"        50
 
-		    --, Run Com "echo" ["<fn=2>\xf6c4</fn>"] "weatherIcon" 40000
-		    --, Run Com "weather.sh" [] "weather" 1000
+            --, Run Com "echo" ["<fn=2>\xf02f</fn>"]        "lpdIcon"       400000
+		    --, Run Com "lpd-print.sh" ["-s"]               "lpd"           50
 
-            --, Run Com "echo" ["<fn=2>\xf0eb</fn>"] "backlightIcon" 40000
-		    --, Run Com "backlight" ["-q"] "backlight" 20
+            , Run Com "echo"    ["<fn=2>\xf0ac</fn>"]       "netIcon"       400000
+            , Run Com "exec.sh" ["prt" , "internet_prt"]    "netif"         100
 
-		    , Run Com "echo" ["<fn=2>\xf240</fn>"] "batteryIcon" 40000
-		    , Run Com "battery.sh" [] "bat" 100
+		    , Run Com "echo"    ["<fn=2>\xf8cc</fn>"]       "tpadIcon"      400000
+		    , Run Com "exec.sh" ["prt" , "touchpad_prt"]    "tpad"          50
 
-            , Run Date "<fn=2>\xf073</fn> %a %b %d %y %H:%M" "date" 50
+		    , Run Com "echo"    ["<fn=2>\xf130</fn>"]       "micIcon"       400000
+		    , Run Com "exec.sh" ["prt" , "mic_prt"]         "mic"           30
+            
+		    , Run Com "echo"    ["<fn=3>\xf028</fn>"]       "volIcon"       400000
+		    , Run Com "exec.sh" ["prt" , "volume_prt"]      "volume"        30
 
-		    , Run UnsafeXMonadLog
-                    ]
+            , Run Com "echo"    ["<fn=2>\xf0eb</fn>"]       "backlightIcon" 400000
+		    , Run Com "exec.sh" ["prt" , "backlight_prt"]   "backlight"     30
+
+		    , Run Com "echo"    ["<fn=3>\xf240</fn>"]       "batteryIcon"   400000
+		    , Run Com "exec.sh" ["prt" , "battery_prt"]     "bat"           100
+
+            , Run Date "<fn=3>\xf073</fn> %a %m.%d.%y"      "date"          50
+            , Run Date "%H:%M"                              "time"          50
+            
+            -- delimiter
+            , Run Com "echo" ["<fc=#ff79c6><fn=4>  \xf111  </fn></fc>"] "delim" 400000
+            
+		    , Run UnsafeXMonadLog ]
+
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <action=`sysmenu.sh`><fc=#df2c14>%bsd%</fc></action> %UnsafeXMonadLog%}\
-                    \ { <action=`displayip.sh`>%netIcon%%netif%</action>\
-                    \ <fc=#ff79c6>.</fc>\
-                    \ <action=`audio.sh -M` button=1><action=`audio.sh -Z` button=3>%micIcon%%mic%</action></action>\
-                    \ <fc=#ff79c6>.</fc>\
-                    \ <action=`audio.sh -P` button=1><action=`audio.sh -z` button=3>%volIcon%%volume%</action></action>\
-                    \ <fc=#ff79c6>.</fc>\
-                    \ %batteryIcon%%bat%\
-                    \ <fc=#ff79c6>.</fc>\
-		            \ %date% "
+       , template = "\
+            \ <action=`xdotool key super+shift+x`><fc=#df2c14>%bsd%</fc></action>%UnsafeXMonadLog%\
+            \ %delim%\
+
+            \ <fn=5><fc=#8be9fd,#666666> %ticker% </fc></fn>\
+
+            \ } %time%\
+
+            \ { <action=`pomo -t 30` button=1><action=`pomo -k` button=3>%timer%%timerIcon%</fc></action></action>\
+            \ %delim%\
+
+            \ <action=`exec.sh msg github_msg` button=1><action=`st` button=3>%ghub%%githubIcon%</fc></action></action>\
+            \ %delim%\
+
+            \ <action=`exec.sh msg localserver_msg`>%server%%serverIcon%</fc></action>\
+            \ %delim%\
+
+            --\ <action=`lpd-print.sh -m`>%lpd%%lpdIcon%</fc></action>\
+            --\ %delim%\
+
+            \ <action=`exec.sh msg internet_msg`>%netif%%netIcon%</fc></action>\
+            \ %delim%\
+
+            \ <action=`exec.sh msg touchpad_toggle`>%tpad%%tpadIcon%</fc></action>\
+            \ %delim%\
+
+            \ <action=`exec.sh msg mic_msg` button=1><action=`audio.sh -Z` button=2><action=`audio.sh -M` button=3>%mic%%micIcon%</fc></action></action></action>\
+            \ %delim%\
+
+            \ <action=`exec.sh msg volume_msg` button=1><action=`audio.sh -z` button=2><action=`audio.sh -P` button=3>%volume%%volIcon%</fc></action></action></action>\
+            \ %delim%\
+
+            \ <action=`exec.sh msg backlight_msg`>%backlight%%backlightIcon%</fc></action>\
+            \ %delim%\
+
+            \ <action=`exec.sh msg battery_msg`>%bat%%batteryIcon%</fc></action>\
+            \ %delim%\
+
+            \ %date%  "
        }
+-- https://codeberg.org/xmobar/xmobar/src/branch/master/doc/quick-start.org#user-content-bar-sections

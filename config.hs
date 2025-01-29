@@ -125,13 +125,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_F3    ), sendMessage NextLayout)                   -- F3  : rotate layouts
     -- , ((modm,               xK_F4    ), )   -- F4  : undefined
     -- , ((modm,               xK_F5    ), )   -- F5  : undefined
-    , ((modm,               xK_F6    ), spawn "$HOME/.local/bin/touchpad.sh -t")  -- F6  : toggle touchpad
-    , ((modm,               xK_F7    ), spawn "mocp -r")                          -- F7  : prev
-    , ((modm,               xK_F8    ), spawn "mocp -G")                          -- F8  : toggle
-    , ((modm,               xK_F9    ), spawn "mocp -f")                          -- F9  : next
-    , ((modm,               xK_F10   ), spawn "$HOME/.local/bin/audio.sh -z")     -- F10 : mute
-    , ((modm,               xK_F11   ), spawn "$HOME/.local/bin/audio.sh -d")     -- F11 : vol-
-    , ((modm,               xK_F12   ), spawn "$HOME/.local/bin/audio.sh -u")     -- F12 : vol+
+    , ((modm,               xK_F6    ), spawn "exec.sh msg touchpad_toggle")  -- F6  : toggle touchpad
+    , ((modm,               xK_F7    ), spawn "mocp -r")                      -- F7  : prev
+    , ((modm,               xK_F8    ), spawn "mocp -G")                      -- F8  : toggle
+    , ((modm,               xK_F9    ), spawn "mocp -f")                      -- F9  : next
+    , ((modm,               xK_F10   ), spawn "exec.sh util volume_mute")     -- F10 : mute
+    , ((modm,               xK_F11   ), spawn "exec.sh util volume_down")     -- F11 : vol-
+    , ((modm,               xK_F12   ), spawn "exec.sh util volume_up")       -- F12 : vol+
 
     , ((modm,               xK_Up    ), spawn "backlight incr 5")  -- brightness+
     , ((modm,               xK_Down  ), spawn "backlight decr 5")  -- brightness-
@@ -296,7 +296,7 @@ myConfig = def
       startupHook        = myStartupHook
     }
 
-mySB       = (statusBarProp "xmobar $HOME/.config/xmobar/xmobarrc" (clickablePP $ myFilter myXmobarPP))
+mySB       = (statusBarProp "xmobar $HOME/.xmobarrc" (clickablePP $ myFilter myXmobarPP))
 myXmobarPP = def
       { ppSep              = magenta "  <fn=3>\xf142</fn>  "
       , ppWsSep            = "  "

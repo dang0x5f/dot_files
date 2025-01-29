@@ -41,6 +41,8 @@ nnoremap <C-j> :m .+1<CR>==
 vnoremap <C-k> :m '<-2<CR>gv=gv
 vnoremap <C-j> :m '>+1<CR>gv=gv
 
+vnoremap <Space>/ y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 nnoremap o o<Esc>
 nnoremap O O<Esc>
 
@@ -93,6 +95,7 @@ function! HourColor()
     execute "colorscheme"
 endfunction
 autocmd VimEnter * call HourColor()
+autocmd VimLeave * !echo -ne "\033[0m"
 " ************************************ VimScript End ************************* }}}
 
 " ************************************ Settings ****************************** {{{
