@@ -1,1 +1,1 @@
-# Configuration Dot Files
+# dot files
