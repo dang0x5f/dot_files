@@ -10,7 +10,7 @@
 set -o vi
 
 # some useful aliases
-alias ls='ls -G'
+alias ls='ls -GF'
 alias h='fc -l'
 alias j=jobs
 alias m="$PAGER"
