@@ -83,7 +83,7 @@ endfunction
 
 function! HourColor()
     let hr = str2nr(strftime('%H'))
-    if hr >= 5 && hr <= 20
+    if hr >= 7 && hr <= 18
         let i = 0
     else
         let i = 1

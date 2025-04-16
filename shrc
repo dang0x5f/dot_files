@@ -10,12 +10,15 @@
 set -o vi
 
 # some useful aliases
+alias l='ls -GF'
 alias ls='ls -GF'
 alias h='fc -l'
 alias j=jobs
 alias m="$PAGER"
 alias ll='ls -lhaFo'
-alias l='tree -L 1 -C'
+alias t='tree -L 1 -C'
+alias tt='tree -L 2 -C'
+alias ttt='tree -L 3 -C'
 alias g='egrep -i --color=auto'
 alias grep='grep -i --color=auto'
  
