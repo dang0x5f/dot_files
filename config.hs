@@ -136,8 +136,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_Up    ), spawn "backlight incr 5")  -- brightness+
     , ((modm,               xK_Down  ), spawn "backlight decr 5")  -- brightness-
 
-    , ((modm .|. shiftMask,   xK_b   ), spawn "firefox $HOME/code/repo/homepage/launcher.html")  -- browser1
-    , ((modm .|. controlMask, xK_b   ), spawn "qutebrowser")                                     -- browser2
+    , ((modm .|. shiftMask,   xK_b   ), spawn "firefox")        -- browser1
+    , ((modm .|. controlMask, xK_b   ), spawn "qutebrowser")    -- browser2
 
     , ((modm .|. shiftMask, xK_d     ), parentPrompt myXPromptConfig)  -- menu prompt 
     , ((modm .|. shiftMask, xK_x     ), sysPrompt    myXPromptConfig)  -- system power options prompt
