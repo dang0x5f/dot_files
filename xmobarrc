@@ -24,7 +24,7 @@ Config { font = "IBM Plex Sans Medium 10"
        , commands = 
             [ Run Com "echo" ["  <fn=1>\xf3a4</fn>  "]      "bsd"           36000
 
-            , Run Com "ticker-primer.sh" []                 "ticker"        10
+            --, Run Com "ticker-primer.sh" []                 "ticker"        10
 
             , Run Com "echo"    ["<fn=3>\xf2f2</fn>"]       "timerIcon"     400000
             , Run Com "pomo"    ["-p"]                      "timer"         20
@@ -68,9 +68,9 @@ Config { font = "IBM Plex Sans Medium 10"
        , alignSep = "}{"
        , template = "\
             \ <action=`xdotool key super+shift+x`><fc=#df2c14>%bsd%</fc></action>%UnsafeXMonadLog%\
-            \ %delim%\
 
-            \ <fn=5><fc=#8be9fd,#666666> %ticker% </fc></fn>\
+            --\ %delim%\
+            --\ <fn=5><fc=#8be9fd,#666666> %ticker% </fc></fn>\
 
             \ } %time%\
 
