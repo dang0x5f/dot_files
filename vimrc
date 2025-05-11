@@ -89,7 +89,8 @@ function! HourColor()
         let i = 1
     endif
     
-    let hourcolors = 'seoul256-light dracula'
+    " let hourcolors = 'seoul256-light dracula'
+    let hourcolors = 'zaibatsu dracula'
     execute "colorscheme " . split(hourcolors)[i]
     redraw
     execute "colorscheme"
