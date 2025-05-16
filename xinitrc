@@ -4,9 +4,9 @@
 #xrandr --output VGA-1 --primary --mode 1600x1200_75.00
 xbanish &
 xsetroot -cursor_name left_ptr
-picom &
+# picom &
 nitrogen --restore &
 xrdb ~/.Xresources
-setxkbmap -option ctrl:nocaps -option terminate:ctrl_alt_bksp
+setxkbmap -option ctrl:nocaps 
 #exec /usr/local/bin/xmonad
 exec $HOME/.xmonad/xmonad-x86_64-freebsd
