@@ -131,6 +131,8 @@ set showcmd
 set showmatch
 set nohlsearch
 
+set colorcolumn=80
+
 set wildmenu
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.out
 

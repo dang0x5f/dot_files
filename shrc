@@ -68,4 +68,5 @@ fi
 # export PATH="$JAVA_HOME/bin:$PATH"
 # alias javafxc='javac --module-path /usr/local/openjfx14/lib --add-modules javafx.controls,javafx.fxml' # Java Compile
 # alias javafx='java --module-path /usr/local/openjfx14/lib --add-modules javafx.controls,javafx.fxml' # Java Runtime
-fortune freebsd-tips
+# fortune freebsd-tips
+fortune

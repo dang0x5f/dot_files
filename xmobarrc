@@ -26,7 +26,7 @@ Config { font = "IBM Plex Sans Medium 10"
 
             --, Run Com "ticker-primer.sh" []                 "ticker"        10
 
-            , Run Com "echo"    ["<fn=3>\xf24d</fn>"]       "picomIcon"     400000
+            , Run Com "echo"    ["<fn=2>\xf24d</fn>"]       "picomIcon"     400000
             , Run Com "exec.sh" ["prt" , "picom_prt"]       "picom"         50
 
             , Run Com "echo"    ["<fn=3>\xf2f2</fn>"]       "timerIcon"     400000
