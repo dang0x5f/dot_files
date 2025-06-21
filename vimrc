@@ -17,6 +17,7 @@ let g:vimwiki_list = [{'name':'main','path':'/mnt/vimwiki/'}, {'name':'local','p
 
 let g:gitgutter_grep=''
 set updatetime=100
+runtime! ftplugin/man.vim
 
 
 " ************************************ Key Binds ***************************** {{{
