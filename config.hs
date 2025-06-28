@@ -200,6 +200,7 @@ myManageHook = composeAll
     , className =? "FileZilla"    --> doShift ( myWorkspaces !! 0 )
     , className =? "lffm"         --> doShift ( myWorkspaces !! 0 )
     , className =? "Lxappearance" --> doShift ( myWorkspaces !! 0 )
+    , className =? "firefox"      --> doShift ( myWorkspaces !! 4 )
     , className =? "firefox-esr"  --> doShift ( myWorkspaces !! 4 )
     , className =? "qutebrowser"  --> doShift ( myWorkspaces !! 4 )
     , className =? "Zathura"      --> doShift ( myWorkspaces !! 5 )

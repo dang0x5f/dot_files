@@ -25,6 +25,8 @@ nnoremap <Space> <Nop>
 vnoremap <Space> <Nop>
 let mapleader = " "
 
+imap jj <Esc>
+
 nnoremap Q <Nop>
 
 nnoremap K :bn<CR>
