@@ -55,17 +55,26 @@ myFocusFollowsMouse  = True
 myClickJustFocuses   = False
 myBorderWidth        = 2
 myModMask            = mod4Mask
+-- myWorkspaces         = [ "<fc=#ff79c6>¹</fc>main"
+--                         ,"<fc=#ff79c6>²</fc>dev"
+--                         ,"<fc=#ff79c6>³</fc>dev"
+--                         ,"<fc=#ff79c6>⁴</fc>dev"
+--                         ,"<fc=#ff79c6>⁵</fc>net"
+--                         ,"<fc=#ff79c6>⁶</fc>media"
+--                         ,"<fc=#ff79c6>⁷</fc>edit"
+--                         ,"<fc=#ff79c6>⁸</fc>virt"
+--                         ,"<fc=#ff79c6>⁹</fc>misc" ]
 myWorkspaces         = [ "<fc=#ff79c6>¹</fc>main"
-                        ,"<fc=#ff79c6>²</fc>dev"
-                        ,"<fc=#ff79c6>³</fc>dev"
-                        ,"<fc=#ff79c6>⁴</fc>dev"
+                        ,"0x2"
+                        ,"0x3"
+                        ,"0x4"
                         ,"<fc=#ff79c6>⁵</fc>net"
-                        ,"<fc=#ff79c6>⁶</fc>media"
-                        ,"<fc=#ff79c6>⁷</fc>edit"
-                        ,"<fc=#ff79c6>⁸</fc>virt"
-                        ,"<fc=#ff79c6>⁹</fc>misc" ]
+                        ,"0x6"
+                        ,"<fc=#ff79c6>⁷</fc>view"
+                        ,"<fc=#ff79c6>⁸</fc>edit"
+                        ,"0x9" ]
 myNormalBorderColor  = "#444444"
-myFocusedBorderColor = "#bd93f9"                    --"#f5f5dc" #df2c14
+myFocusedBorderColor = "#bd93f9" --"#f5f5dc" #df2c14 "#bd93f9" #f1fa8c
 myFilter = filterOutWsPP [scratchpadWorkspaceTag]
 
 growRight   = (withFocused (keysResizeWindow (10,0)  (0,0)) )
@@ -130,8 +139,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_F8    ), spawn "mocp -G")                      -- F8  : toggle
     , ((modm,               xK_F9    ), spawn "mocp -f")                      -- F9  : next
     , ((modm,               xK_F10   ), spawn "exec.sh util volume_mute")     -- F10 : mute
-    , ((modm,               xK_F11   ), spawn "exec.sh util volume_down")     -- F11 : vol-
-    , ((modm,               xK_F12   ), spawn "exec.sh util volume_up")       -- F12 : vol+
+    -- , ((modm,               xK_F11   ), spawn "exec.sh util volume_down")     -- F11 : vol-
+    -- , ((modm,               xK_F12   ), spawn "exec.sh util volume_up")       -- F12 : vol+
+    , ((modm,               xK_F11   ), spawn "osd -v -")                     -- F11 : vol-
+    , ((modm,               xK_F12   ), spawn "osd -v +")                     -- F12 : vol+
 
     , ((modm,               xK_Up    ), spawn "backlight incr 5")  -- brightness+
     , ((modm,               xK_Down  ), spawn "backlight decr 5")  -- brightness-
@@ -197,20 +208,20 @@ myLayout = renamed [CutWordsLeft 1]
 ----------------------------------------------------------------------------- o
 myManageHook = composeAll
     [ className =? "Pcmanfm"      --> doShift ( myWorkspaces !! 0 )
+    , className =? "Gtkpod"       --> doShift ( myWorkspaces !! 0 )
     , className =? "FileZilla"    --> doShift ( myWorkspaces !! 0 )
     , className =? "lffm"         --> doShift ( myWorkspaces !! 0 )
     , className =? "Lxappearance" --> doShift ( myWorkspaces !! 0 )
     , className =? "firefox"      --> doShift ( myWorkspaces !! 4 )
     , className =? "firefox-esr"  --> doShift ( myWorkspaces !! 4 )
     , className =? "qutebrowser"  --> doShift ( myWorkspaces !! 4 )
-    , className =? "Zathura"      --> doShift ( myWorkspaces !! 5 )
-    , className =? "Surf"         --> doShift ( myWorkspaces !! 5 )
-    , className =? "Abiword"      --> doShift ( myWorkspaces !! 6 )
-    , className =? "Gimp"         --> doShift ( myWorkspaces !! 6 )
-    , className =? "Gtkpod"       --> doShift ( myWorkspaces !! 6 )
-    , className =? "Vncviewer"    --> doShift ( myWorkspaces !! 7 ) 
+    , className =? "Zathura"      --> doShift ( myWorkspaces !! 6 )
+    , className =? "Abiword"      --> doShift ( myWorkspaces !! 7 )
+    , className =? "Gimp"         --> doShift ( myWorkspaces !! 7 )
+    , className =? "Vncviewer"    --> doShift ( myWorkspaces !! 8 ) 
     , className =? "wow.exe"      --> doShift ( myWorkspaces !! 8 )
 
+    , className =? "firefox" <&&> resource =? "Toolkit" --> doRectFloat (W.RationalRect (0.75) (0.03) (0.25) (0.25))
     , className =? "firefox-esr" <&&> resource =? "Toolkit" --> doRectFloat (W.RationalRect (0.75) (0.03) (0.25) (0.25))
 
     , className =? "Main"  --> doFloat -- java
