@@ -138,11 +138,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_F7    ), spawn "mocp -r")                      -- F7  : prev
     , ((modm,               xK_F8    ), spawn "mocp -G")                      -- F8  : toggle
     , ((modm,               xK_F9    ), spawn "mocp -f")                      -- F9  : next
-    , ((modm,               xK_F10   ), spawn "exec.sh util volume_mute")     -- F10 : mute
+    -- , ((modm,               xK_F10   ), spawn "exec.sh util volume_mute")     -- F10 : mute
     -- , ((modm,               xK_F11   ), spawn "exec.sh util volume_down")     -- F11 : vol-
     -- , ((modm,               xK_F12   ), spawn "exec.sh util volume_up")       -- F12 : vol+
-    , ((modm,               xK_F11   ), spawn "osd -v -")                     -- F11 : vol-
-    , ((modm,               xK_F12   ), spawn "osd -v +")                     -- F12 : vol+
+    , ((modm,               xK_F10   ), spawn "osd -v !")                       -- F10 : mute
+    , ((modm,               xK_F11   ), spawn "osd -v -")                       -- F11 : vol-
+    , ((modm,               xK_F12   ), spawn "osd -v +")                       -- F12 : vol+
 
     , ((modm,               xK_Up    ), spawn "backlight incr 5")  -- brightness+
     , ((modm,               xK_Down  ), spawn "backlight decr 5")  -- brightness-
