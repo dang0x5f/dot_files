@@ -101,7 +101,7 @@ Config { font = "IBM Plex Sans Medium 10"
             \ <action=`exec.sh msg mic_msg` button=1><action=`audio.sh -Z` button=2><action=`audio.sh -M` button=3>%mic%%micIcon%</fc></action></action></action>\
             \ %delim%\
 
-            \ <action=`exec.sh msg volume_msg` button=1><action=`audio.sh -z` button=2><action=`audio.sh -P` button=3>%volume%%volIcon%</fc></action></action></action>\
+            \ <action=`exec.sh msg volume_msg` button=1><action=`osd -m o` button=2><action=`osd -m o` button=3>%volume%%volIcon%</fc></action></action></action>\
             \ %delim%\
 
             \ <action=`exec.sh msg backlight_msg`>%backlight%%backlightIcon%</fc></action>\
